@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="5.0" client="site" method="upgrade">
+    <name>Modul MySwiperImageSlider</name>
+    <author>Nikola</author>
+    <version>1.0.0</version>
+    <description>Slajder slika za Joomla 5 pomoću Swiper.js</description>
+    <files>
+        <filename module="mod_myswiperimageslider">mod_myswiperimageslider.php</filename>
+        <folder>tmpl</folder>
+        <folder>media</folder>
+    </files>
+	
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="image1"
+                    type="media"
+                    label="Slika 1"
+                    description="Izaberi sliku za slajd 1."
+                    directory=""
+                />
+                <field
+                    name="image2"
+                    type="media"
+                    label="Slika 2"
+                    description="Izaberi sliku za slajd 2."
+                    directory=""
+                />
+                <field
+                    name="image3"
+                    type="media"
+                    label="Slika 3"
+                    description="Select image for slide 3."
+                    directory=""
+                />
+                <field
+                    name="image4"
+                    type="media"
+                    label="Slika 4"
+                    description="Izaberi sliku za slajd 4."
+                    directory=""
+                />
+                <field
+                    name="image5"
+                    type="media"
+                    label="Slika 5"
+                    description="Izaberi sliku za slajd 5."
+                    directory=""
+                />
+                <field
+                    name="image6"
+                    type="media"
+                    label="Slika 6"
+                    description="Izaberi sliku za slajd 6."
+                    directory=""
+                />
+                <field
+                    name="image7"
+                    type="media"
+                    label="Slika 7"
+                    description="Izaberi sliku za slajd 7."
+                    directory=""
+                />
+                <field
+                    name="image8"
+                    type="media"
+                    label="Slika 8"
+                    description="Izaberi sliku za slajd 8."
+                    directory=""
+                />
+                <field
+                    name="image9"
+                    type="media"
+                    label="Slika 9"
+                    description="Izaberi sliku za slajd 9."
+                    directory=""
+                />
+                <field
+                    name="image10"
+                    type="media"
+                    label="Slika 10"
+                    description="Izaberi sliku za slajd 10."
+                    directory=""
+                />
+
+                <field
+                    name="image_width"
+                    type="number"
+                    label="Širina slike (px)"
+                    description="Podesi širinu svake slike u pikselima. (npr., 300)"
+                    default="300"
+                    min="1"
+                />
+                <field
+                    name="image_height"
+                    type="number"
+                    label="Visina slike (px)"
+                    description="Podesite visinu svake slike u pikselima. (npr., 200)"
+                    default="200"
+                    min="1"
+                />
+                <field
+                    name="object_fit"
+                    type="list"
+                    label="Režim prilagođavanja slike"
+                    description="Kako treba promeniti veličinu slike da bi se uklopila u njen kontejner."
+                    default="cover"
+                >
+                    <option value="cover">Cover (popunjavanje, obrezivanje ako je potrebno)</option>
+                    <option value="contain">Contain (prikazuje celu sliku, dodaje prazan prostor ako je potrebno)</option>
+                    <option value="fill">Fill (širi sliku da bi se popunio prostor)</option>
+                    <option value="scale-down">Scale-down (smanjuje je da bi se uklopila ako je veća)</option>
+                    <option value="none">None (ne menja ništa)</option>
+                </field>
+
+                <field
+                    name="autoplay"
+                    type="radio"
+                    label="Autoplay"
+                    description="Omogućite ili onemogućite automatsku reprodukciju za slajder."
+                    default="1"
+                >
+                    <option value="1">Da</option>
+                    <option value="0">Ne</option>
+                </field>
+                <field
+                    name="slides_per_view"
+                    type="number"
+                    label="Broj vidljivih slajdova"
+                    description="Broj slajdova koji se istovremeno prikazuju (npr. 3)."
+                    default="3"
+                    min="1"
+                />
+				
+				<field
+                    name="transition_speed"
+                    type="number"
+                    label="Transition Speed (ms)"
+                    description="Set the speed of slide transitions in milliseconds (e.g., 500 for half a second)."
+                    default="300"
+                    min="0"
+                />
+                <field
+                    name="transition_effect"
+                    type="list"
+                    label="Efekat tranzicije"
+                    description="Izaberi vizuelni efekat za prelaze između slajdova."
+                    default="slide"
+                >
+                    <option value="slide">Slide</option>
+                    <option value="fade">Fade</option>
+                    <option value="cube">Cube</option>
+                    <option value="coverflow">Coverflow</option>
+                    <option value="flip">Flip</option>
+                    <option value="creative">Creative</option>
+                    <option value="cards">Cards</option>
+                </field>
+				
+                <field
+                    name="space_between"
+                    type="number"
+                    label="Prostor između slajdova (px)"
+                    description="Razmak između slajdova u pikselima."
+                    default="30"
+                    min="0"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
