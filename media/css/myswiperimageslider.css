@@ -1,0 +1,114 @@
+/* Custom CSS for MySwiperImageSlider */
+.mySwiperImageSlider {
+    width: 100%;
+    /* Visinu slidera sada određuje visina slika + eventualni padding */
+    /* Ukloni ili komentiraj fiksnu visinu ako želiš da se prilagodi slikama */
+    /* height: 300px; */ /* MOŽDA UKLONITI OVO AKO SLIKE NISU VISOKE 300px */
+    overflow: hidden;
+}
+
+.mySwiperImageSlider .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Koristi CSS varijable za širinu i visinu slidea, koje su postavljene iz JS-a */
+    width: var(--swiper-image-width, 300px); /* Fallback je važan */
+    height: var(--swiper-image-height, 200px); /* Fallback je važan */
+    /* VAŽNO: Swiper automatski postavlja širinu slidea.
+       Ova fiksna širina ovdje može biti problem ako slidesToShow nije 1.
+       Ako je problem u širini, možda ćeš morati ukloniti 'width' iz .swiper-slide
+       i pustiti Swiper da to izračuna, a fiksirati samo visinu i object-fit za img.
+       Međutim, za '3 fotografije odjednom', fiksna širina je obično ok ako je ukupna širina slidera podijeljena.
+    */
+}
+
+.mySwiperImageSlider .swiper-slide img {
+    /* Slika će se prilagoditi dimenzijama slidea (koje su sada fiksne putem CSS varijabli na .swiper-slide) */
+    width: 100%;
+    height: 100%;
+    object-fit: var(--swiper-object-fit, cover); /* Koristi CSS varijablu, fallback 'cover' */
+    display: block;
+}
+
+/* Osnovni stilovi za Swiper navigaciju - osiguraj da su vidljivi */
+.mySwiperImageSlider .swiper-button-next,
+.mySwiperImageSlider .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 27px; /* Default Swiper širina */
+    height: 44px; /* Default Swiper visina */
+    margin-top: -22px; /* Default Swiper margina */
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000; /* Boja ikone (ako koristiš Swiperove SVG ikone) */
+    display: flex; /* Osiguraj da su prikazani */
+    align-items: center;
+    justify-content: center;
+	 opacity: 0; /* Inicijalno nevidljivo */
+    visibility: hidden; /* Dodatno osigurava da ne zauzimaju prostor niti su interaktivne */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Glatka animacija pojavljivanja */
+  
+}
+
+.mySwiperImageSlider .swiper-button-prev {
+    left: 10px;
+}
+
+.mySwiperImageSlider .swiper-button-next {
+    right: 10px;
+}
+.mySwiperImageSlider:hover .swiper-button-next,
+.mySwiperImageSlider:hover .swiper-button-prev {
+    
+    opacity: 1; /* Postaje potpuno vidljivo */
+    visibility: visible; /* Postaje vidljivo */
+
+}
+.mySwiperImageSlider .swiper-button-prev::after,
+.mySwiperImageSlider .swiper-button-next::after {
+    font-family: swiper-icons; /* Font ikona, ako ih Swiper koristi */
+    font-size: 30px; /* Veličina ikone */
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: normal;
+    line-height: 1;
+}
+
+.mySwiperImageSlider .swiper-button-prev::after {
+    content: 'prev'; /* Swiperov sadržaj za ikonu */
+}
+
+.mySwiperImageSlider .swiper-button-next::after {
+    content: 'next'; /* Swiperov sadržaj za ikonu */
+}
+
+/* Stilovi za paginaciju */
+.mySwiperImageSlider .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.mySwiperImageSlider .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #000; /* Default boja */
+    opacity: 0.2;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.mySwiperImageSlider .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #007aff; /* Aktivna boja */
+}
